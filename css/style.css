@@ -1,0 +1,923 @@
+/* ここから下に記載していく */
+html{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.mouse {
+    cursor: url("https://orangedays00.github.io/gs/img/mouse.png"), auto;
+}
+
+
+/*SP版CSS*/
+@media screen and (max-width: 960px){
+    body {
+        max-width: 100%;
+        font-size: 16px;
+        margin-right: auto;
+        margin-left: auto;
+        line-height: 1.5;
+        color: #333333;
+    }
+
+    /* ハンバーガーメニューを開いた場合にメインコンテンツを固定するためのCSS */
+    body.fixed {
+        position: fixed;
+        width: 100%;
+    }
+
+    header{
+        display: flex;
+        width: 100%;
+        height: 64px;
+        align-items: center;
+        z-index: 50px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #707070;
+        color: #ffffff;
+    }
+
+    .logo img{
+        display: inline-block;
+        padding: 0 16px;
+        width: auto;
+        height: 32px;
+    }
+
+    /* SP版ハンバーガーメニュー */
+    .sp-menu {
+        display: flex;
+        justify-content: flex-end;
+        position: fixed;
+        width: 100%;
+        z-index: 50;
+    }
+
+    .sp-menu #open {
+        font-size: 32px;
+        /* line-height: 64px; */
+        margin-right: 16px;
+        border-radius: 25%;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    .sp-menu #open.hide {
+        display: none;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255,255,255, 0.95);
+        text-align: center;
+        padding: 64px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s;
+        z-index: 100;
+    }
+
+    .overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .overlay #close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    .overlay ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .overlay li {
+        margin-top: 24px;
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .overlay.show li {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* ハンバーガーメニュー内の表示アニメーション */
+    .overlay.show li:nth-child(1){
+        transition-delay: 0.1s;
+    }
+
+    .overlay.show li:nth-child(2){
+        transition-delay: 0.2s;
+    }
+
+    .overlay.show li:nth-child(3){
+        transition-delay: 0.3s;
+    }
+
+    .overlay.show li:nth-child(4){
+        transition-delay: 0.4s;
+    }
+
+    .overlay.show li:nth-child(5){
+        transition-delay: 0.5s;
+    }
+
+    .gnav-item{
+        list-style: none;
+        display: inline-block;
+        padding:5px 5px 5px 0;
+        font-size: 24px;
+    }
+
+    .gnav-item a {
+        text-decoration: none; /*テキストの下線を消す場合は、aタグにtext-decorationを当てる*/
+    }
+
+    a {
+        color: #333333;
+    }
+
+/*ファーストビュー画像エリア*/
+    figure {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    figure .img-sp {
+        width: 100%;
+        vertical-align: top;
+    }
+
+    figure .img-pc {
+        display: none;
+    }
+
+    figure .mainimg{
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 70%;
+        text-align: center;
+        margin: 0;
+    }
+
+    figure .font24 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+
+    figure .font16 {
+        font-size: 16px;
+        margin: 0 auto;
+    }
+
+/*各エリアのh2の共通CSS*/
+    .about h2, .news h2 {
+        font-size: 24px;
+        color: #ffd61a;
+        margin: 40px 0 10px 0;
+        text-align: center;
+    }
+
+    .course h2, .contact h2 {
+        font-size: 24px;
+        margin: 40px 0 10px 0;
+        text-align: center;
+    }
+
+    .access h2 {
+        font-size: 24px;
+        padding-top: 10px;
+        margin:40px 0 10px 0;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+/*各見出しの共通CSS*/
+    .about-heading, .course-heading, .news-heading, .access-heading, .contact-heading {
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+/*ABOUTとCONTACTの共通CSS*/
+    .about-conts, .contact-conts {
+        text-align: center;
+    }
+
+    .about-text, .contact-text {
+        margin-top: 10px;
+    }
+
+/* ABOUTエリア */
+
+    .about-pic {
+        display: flex;
+        margin: 10px 0 40px 0;
+        flex-wrap: wrap;
+    }
+
+    .about-pic img {
+        width: calc(100% / 2);
+        box-sizing: border-box;
+        height: calc(100% / 2);
+        /* 実機で見た場合にwidthをcalc、heightをautoで指定すると、縦横比が崩れたためheightも調整 */
+    }
+
+    .about-conts, .info-text.sp-text, .contact-text {
+        padding: 10px;
+    }
+
+/* COURSEエリア */
+    .course-pic img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .info-text.pc-text {
+        display: none;
+    }
+
+    .course-info h3 {
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+/* NEWSエリア */
+    .news-conts {
+        width: 100%;
+        text-align: center;
+    }
+
+    .news-box {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .news-card {
+        width: 200px;
+        font-size: 12px;
+        margin: 0 auto 10px;
+        padding: 0 20px;
+        text-align: left;
+    }
+
+    .news-card img {
+        width: 200px;
+        border-radius: 10px;
+    }
+
+    /* ニュースのスクロールバー。コメントアウト */
+    /* .news-box::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    .news-box::-webkit-scrollbar-thumb {
+        background: #fafafa;
+        border-radius: 10px;
+    }
+
+    .news-box::-webkit-scrollbar-track {
+        background: transparent;
+    } */
+
+/* アクションボタンのCSS */
+    .news-btn {
+        margin: 20px auto 0 auto;
+    }
+
+    .contact-submit {
+        margin: 30px auto 40px auto;
+        text-align: center;
+    }
+
+    .contact-submit input {
+        display: none;
+    }
+
+    .news-btn,.news-btn:focus,.news-btn:active, .news-btn:visited, .contact-submit {
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: #ffd61a;
+        border: solid 2px #ffd61a;
+        outline: none; /*クリックした時にボーダーが青枠になるのを消す*/
+        border-radius: 4px;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        width: 300px;
+        height: 60px;
+        -webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+        box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+        -webkit-transition: .12s;
+        transition: .12s;
+        cursor: pointer;
+    }
+
+    .news-btn:hover, .contact-submit:hover {
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border: solid 2px #ffd61a;
+        color: #ffd61a;
+        opacity: 0.8;
+    }
+
+/* ACCESSエリア */
+    section.access {
+        background-color: #fafafa;
+    }
+
+    .google-map {
+        position:relative;
+        width:100%;
+        height:0;
+        padding-top:75%;
+    }
+
+    .google-map iframe {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+
+/* ACCESSとcontactテーブルのCSS */
+    .access-table {
+        margin: 20px auto 0 auto;
+    }
+
+    .contact-table {
+        margin: 20px;
+    }
+
+    .access-table tr {
+        width: 100%;
+        height: 50px;
+    }
+
+    .access-table th {
+        width: 30%;
+        text-align: left;
+        vertical-align: middle;
+        padding: 0 15px;
+    }
+
+    .access-table td {
+        width: 70%;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .contact-table tr {
+        width: 100%;
+        height: 50px;
+    }
+
+    .contact-table th, .contact-table td {
+        display: block;
+        /* width: 100%; */
+        border-bottom: none;
+    }
+
+    .contact-table th {
+        font-size: 16px;
+        text-align: left;
+        vertical-align: middle;
+        background-color: #bfbfbf;
+        padding: 5px;
+    }
+
+    .contact-table td {
+        font-size: 16px;
+        text-align: left;
+        vertical-align: middle;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+/* contactエリアのCSS */
+    .contact-form {
+        text-align: center;
+    }
+
+    .contact-textbox, .contact-textarea{
+        width: 100%;
+        border: solid 1px #bfbfbf;
+        box-sizing: border-box;
+    }
+
+    .contact-parts.contact-textbox {
+        height: 30px;
+        background-color: #ffffff;
+    }
+
+    .contact-motivation {
+        display: block;
+        position: relative;
+        padding-left:36px;
+        margin: 5px 0 15px 0;
+        cursor: pointer;
+        font-size: 16px;
+        transform: scale(0.8);
+    }
+
+    .contact-motivation input {
+        display: none;
+    }
+
+    .check-mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        border: solid 1px #bfbfbf;
+        background-color: #bfbfbf;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .check-mark:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 4px;
+        width: 4px;
+        height: 6px;
+        border: solid #707070;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+
+    .contact-motivation input:checked + .check-mark {
+        background-color: #ffffff;
+        border-color: #bfbfbf;
+    }
+
+    .contact-motivation input:checked + .check-mark:after {
+        opacity: 1;
+    }
+
+    input[type="text"],input[type="email"],#howKnow,textarea,th{
+        font-size: 16px;
+        transform: scale(0.8);
+    }
+
+}
+
+/*PC版CSS*/
+@media screen and (min-width: 960px){
+
+
+    body{
+        width: 1200px;
+        font-size: 16px;
+        margin-right: auto;
+        margin-left: auto;
+        line-height: 1.5;
+        color: #333333;
+    }
+
+    /*ヘッダー*/
+    header{
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+    }
+
+    /*セクションの共通CSS*/
+    section {
+        margin-top: 60px;
+    }
+
+    section.access {
+        padding-bottom: 60px;
+    }
+
+    /*フッター*/
+    footer {
+        text-align: center;
+        padding: 30px 0;
+        background-color: #707070;
+        color: #ffffff;
+    }
+
+    /*グローバルナビ*/
+    .sp-menu, .material-icons {
+        display: none;
+    }
+
+    .logo{
+        margin-right: auto;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+
+    .gnav-item{
+        list-style: none;
+        display: inline-block;
+        padding:50px 50px 50px 0;
+        font-size: 21px;
+        cursor: pointer;
+    }
+
+    .gnav-item:hover {
+        opacity: 0.5;
+    }
+
+
+    /*リンクの調整*/
+    .gnav-item a {
+        text-decoration: none;
+    }
+
+    /*リンクカラーが変わってしまうので、調整*/
+    a {
+        color: #333333;
+    }
+
+    /*ファーストビュー画像エリア*/
+    figure {
+        width: 1200px;
+        position: relative;
+    }
+
+    figure .img-pc {
+        width: 1200px;
+        vertical-align: top;
+        border-radius: 20px;
+    }
+
+    figure .img-sp {
+        display: none;
+    }
+
+    figure .mainimg{
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    figure .font60 {
+        font-size: 60px;
+        font-weight: bold;
+    }
+
+    figure .font40 {
+        font-size: 40px;
+    }
+
+/*各エリアのh2の共通CSS*/
+    .about h2, .news h2 {
+        font-size: 24px;
+        color: #ffd61a;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .course h2, .contact h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .access h2 {
+        font-size: 24px;
+        padding-top: 60px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+/*各見出しの共通CSS*/
+    .about-heading, .course-heading, .news-heading, .access-heading, .contact-heading {
+        font-size: 18px;
+        text-align: center;
+        margin: 30px 0 60px 0;
+    }
+
+/*ABOUTとCONTACTの共通CSS*/
+    .about-conts, .contact-conts {
+        text-align: center;
+    }
+
+    .about-text, .contact-text {
+        margin-top: 40px;
+    }
+
+/*ABOUTのCSS*/
+    .about-pic {
+        display: flex;
+        margin-top: 80px;
+    }
+
+    .about-pic img {
+        width: calc(100% / 4);
+        max-width: 100%;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .about-pic img:nth-child(1) {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .about-pic img:nth-child(4) {
+        border-radius: 0 10px 10px 0;
+    }
+
+/*COURSEエリア*/
+    .course-container{
+        background-color: #fafafa;
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .course-container section {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        height: 400px;
+    }
+
+    .course-container section:nth-child(even){
+        flex-flow: row-reverse;
+    }
+
+    .course-pic img {
+        object-fit: cover;
+        width: 600px;
+        height: 400px;
+    }
+
+    .course-info {
+        width: 600px;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-conts {
+        width: 430px;
+        text-align: left;
+        margin-left: 50px;
+    }
+
+    .info-conts.even{
+        width: 430px;
+        text-align: left;
+        margin: 0 50px 0 auto;
+    }
+
+    .course-info h3 {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .info-text.pc-text {
+        margin-top: 40px;
+    }
+
+    .info-text.sp-text {
+        display: none;
+    }
+
+/*newsエリアのCSS*/
+    .news-conts {
+        text-align: center;
+    }
+
+    .news-box {
+        display: flex;
+        justify-content: center;
+    }
+
+    .news-card {
+        width: 300px;
+        margin: 0 15px;
+        font-size: 14px;
+    }
+    .news-card img {
+        border-radius: 10px;
+    }
+
+/*アクションボタンのCSS*/
+    .news-btn {
+        margin: 60px auto 0 auto;
+    }
+
+    .contact-submit {
+        margin: 30px auto 140px auto;
+        text-align: center;
+    }
+
+    .contact-submit input {
+        display: none;
+    }
+
+    .news-btn,.news-btn:focus,.news-btn:active, .news-btn:visited, .contact-submit {
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: #ffd61a;
+        border: solid 2px #ffd61a;
+        outline: none; /*クリックした時にボーダーが青枠になるのを消す*/
+        border-radius: 4px;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        width: 300px;
+        height: 60px;
+        -webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+        box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+        -webkit-transition: .12s;
+        transition: .12s;
+        cursor: pointer;
+    }
+
+    .news-btn:hover, .contact-submit:hover {
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border: solid 2px #ffd61a;
+        color: #ffd61a;
+        opacity: 0.8;
+    }
+
+/*ACCESSエリアのCSS*/
+    .google-map {
+        position:relative;
+        width:100%;
+        height:100%;
+        padding-top:37.5%;
+    }
+
+    .google-map iframe {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+
+    section.access {
+        background-color: #fafafa;
+    }
+
+/*Accessとcontactのテーブル*/
+    .access-table, .contact-table {
+        margin: 60px auto 0 auto;
+    }
+
+    .access-table tr {
+        width: 100%;
+        height: 50px;
+    }
+
+    .access-table th {
+        width: 150px;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .access-table td {
+        width: 400px;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .contact-table tr {
+        width: 100%;
+        height: 50px;
+    }
+
+    .contact-table th {
+        width: 160px;
+        text-align: left;
+        vertical-align: middle;
+        padding:0 64px 0 16px;
+    }
+
+    .contact-table td {
+        width: 400px;
+        text-align: left;
+        vertical-align: middle;
+        padding: 8px;
+    }
+
+/*contact＞フォームのCSS*/
+    .contact-form {
+        text-align: center;
+    }
+
+    .contact-textbox, .contact-textarea{
+        width: 328px;
+        border: solid 1px #bfbfbf;
+        box-sizing: border-box;
+    }
+
+    .contact-parts.contact-textbox {
+        height: 36px;
+    }
+
+    .contact-motivation {
+        display: block;
+        position: relative;
+        padding-left:36px;
+        margin: 12px 0;
+        cursor: pointer;
+    }
+
+    .contact-motivation input {
+        display: none;
+    }
+
+    .check-mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 24px;
+        width: 24px;
+        border: solid 1px #bfbfbf;
+        background-color: #bfbfbf;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .check-mark:after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 6px;
+        width: 6px;
+        height: 10px;
+        border: solid #707070;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+
+    .contact-motivation input:checked + .check-mark {
+        background-color: #ffffff;
+        border-color: #bfbfbf;
+    }
+
+    .contact-motivation input:checked + .check-mark:after {
+        opacity: 1;
+    }
+
+
+    .contact-table tr:first-child{
+        border-top: solid 2px #bfbfbf;
+        border-bottom: solid 1px #bfbfbf;
+    }
+
+
+    .contact-table tr {
+        border-bottom: solid 1px #bfbfbf;
+    }
+
+    .contact-table th {
+        border-right: solid 1px #bfbfbf;
+    }
+}
