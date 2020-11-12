@@ -4,8 +4,8 @@ function lupin3(){
     const lupinTitleText = 'チーズはいただいたぜ';
 
     let audioElem;
-    const bgm = 'https://orangedays00.github.io/gs/mp3/rupinTitle.m4a';
-    const kasya = 'https://orangedays00.github.io/gs/mp3/typewriter-1.mp3';
+    const bgm = 'https://orangedays00.github.io/gs_dev18_01/mp3/rupinTitle.m4a';
+    const kasya = 'https://orangedays00.github.io/gs_dev18_01/mp3/typewriter-1.mp3';
     const playSound1 = (filename) => {
         audioElem = new Audio();
         audioElem.src = filename;
